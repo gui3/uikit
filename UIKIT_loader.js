@@ -16,6 +16,16 @@ const UI_KITS = [
       './Kits/oldproof/layout.css',
       './Kits/oldproof/ui.css'
     ]
+  },
+  {
+    name: 'modern',
+    selected: true, // add this line to the one you want to load
+    longName: 'Modern', // optionnal
+    description: 'using modern technos like display: grid',
+    css: [
+      './Kits/modern/layout.css',
+      './Kits/modern/ui.css'
+    ]
   }
   // add your CSS links here
 ]
@@ -53,17 +63,28 @@ function setUikitCss (cssList) {
 
 window.onload = function () {
   const select = document.getElementById('cssDropdown')
+  const selectOptions = []
+  for (const option of select.options) {
+    selectOptions.push(option.value)
+  }
 
   UI_KITS.forEach(kit => {
-    // add to the cssDropdown
-    const option = document.createElement('option')
-    option.value = kit.name
-    option.appendChild(
-      document.createTextNode(kit.longName || kit.name)
-    )
-    select.appendChild(option)
+    // add to the cssDropdown ------------------------------
+    if (!selectOptions.includes(kit.name)) {
+      const option = document.createElement('option')
+      option.value = kit.name
+      option.appendChild(
+        document.createTextNode(kit.longName || kit.name)
+      )
+      if (kit.selected) {
+        option.selected = true
+      }
+      select.appendChild(option)
+    }
 
   })
+
+  changeUi('cssDropdown')
 
   console.log('CSS loaded, ready to go!')
 }

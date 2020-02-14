@@ -4,9 +4,20 @@ body {
 }
 
 header {
-  position: fixed;
+  position: ;
+}
+
+.flashes {
+  position: relative;
+}
+.flashes .flash p {
+  display: inline-block;
+}
+.flashes .flash button {
+  float: right;
 }
 
 nav.nav {
   float: left;
+  height: 100%;
 }
