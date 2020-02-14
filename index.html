@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>UI KIT previewer</title>
+
+    <link rel="icon" type="image/ico" href="./shared/favicon.ico">
+
+    <!--link rel="stylesheet" type="text/css" href="css/shared.css"-->
+
+  </head>
+  <body>
+
+
+    <header>
+      <div class="logo">
+        <img src="./shared/websiteLogo.svg" alt="logo">
+        <a class="title" href="#">uiKit</a>
+        <p class="moto">preview your CSS !</p>
+      </div>
+
+      <nav class="toolbar">
+        <div class="tools">
+          <label for="dropdown">Choose a ui Kit :</label>
+          <select
+          name="dropdown"
+          id="cssDropdown"
+          onclick="changeUi('cssDropdown')">
+              <option value="bare" selected>Bare (no css)</option>
+          </select>
+        </div>
+
+        <div class="connect">
+          <button
+          type="button"
+          class="login"
+          name="login">
+            Log In
+          </button>
+
+          <button
+          type="button"
+          class="signup"
+          name="signup">
+            Sign Up
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <section class="flashes">
+      <div class="flash info">
+        <p>You should enable Javascript</p>
+        <button type="button" name="close">X</button>
+      </div>
+      <div class="flash danger">
+        <p>And use a recent/decent browser !!</p>
+        <button type="button" name="close">X</button>
+      </div>
+      <div class="flash success">
+        <p>Or add manually the css to test older browsers</p>
+        <button type="button" name="close">X</button>
+      </div>
+    </section>
+
+    <nav class="nav">
+      <ul>
+        <li>
+          <a href="#">home</a>
+        </li>
+        <li>
+          <a href="#">page</a>
+        </li>
+        <li>
+          <a href="#">about</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section>
+      <article>
+        <h1>Welcome to uiKit</h1>
+        <p>
+          This basic page is a way (for me) to preview
+          what a bunch of css will render
+          before adding it to a website/app
+        </p>
+        <h2>Usage</h2>
+        <p>
+          add your css files to the root folder
+          (preferably in CSS)
+          then add an item in UIKIT_loader.js
+          following this syntax
+        </p>
+        <pre><code>
+const UI_KITS = [
+  {
+    name: 'bare',
+    longName: 'Bare (no css)', // optionnal
+    description: 'no CSS at all',
+    css: [
+    ]
+  },
+  {
+    name: 'oldproof',
+    longName: 'Oldproof (old browsers)', // optionnal
+    description: 'using only OOOLD technologies like float for layout',
+    css: [
+      './Kits/oldproof/layout.css',
+      './Kits/oldproof/ui.css'
+    ]
+  }
+]
+</code></pre>
+      </article>
+    </section>
+
+
+
+  </body>
+  <script src="./UIKIT_loader.js" charset="utf-8"></script>
+</html>
